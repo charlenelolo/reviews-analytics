@@ -17,12 +17,29 @@ for d in data:
 	sum_len = sum_len + len(d)
 print('留言平均長度為', sum_len/len(data))
 
+
 # 篩選小於100個字的留言
 new = []
 for d in data:
 	if len(d) < 100:
 		new.append(d)
-print('共有', len(new), '比留言長度小於100')
+print('共有', len(new), '筆留言長度小於100')
 
 
+# 篩選含有good的留言，並計數
+good = []
+for d in data:
+	if 'good' in d:
+		good.append(d)
+print('共有',len(good) ,'筆留言含有good')
+print('Example of review with the word good:')
+print('-----------------')
+print(good[2])
 
+
+# 進階快寫法
+good_2 = [d for d in data if 'good' in d]
+print(good_2[2])
+print(len(good_2))
+
+bad = ['bad' in d for d in data]
